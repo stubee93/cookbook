@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see railcookbooks configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  database: cookbook
   username: rafai
   password: rafai
 
