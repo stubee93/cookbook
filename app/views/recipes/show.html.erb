@@ -18,7 +18,7 @@
 <% end %>
 <%= link_to 'Vissza', _back_url %>
 <div>
-  <p>Elkészítési idő: <%= @recipe.time %> perc   |   Nehézségi szint: <%= Level.find(@recipe.difficulty).name %></p>
+  <p>Elkészítési idő: <%= @recipe.time %> perc   |   Nehézségi szint: <%= Level.find(@recipe.level).name %></p>
 </div>
 
 <div>
