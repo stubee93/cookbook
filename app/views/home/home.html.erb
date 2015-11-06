@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="container">
+  <h1>Legújabb receptek</h1>
+
+
+<div class="row">
+  <% @last_recipes.each do |recipe| %>
+      <div class="col-sm-4">
+            <div class="recipe">
+            <h3><%= link_to recipe.name, recipe %></h3>
+            <%= rating_for recipe, "instructions", :star => 5 %><p> <%= Level.find(recipe.difficulty).name %> | <%= recipe.time %> min </p>
+            <%= link_to image_tag(recipe.image.url(:medium), height: "200px"), recipe %>
+            <hr />
+            <%= link_to User.find(recipe.user_id).name, user_path(recipe.user_id) %>
+        </div>
+      </div>
+  <% end %>
+</div>
+</div>
+</div>

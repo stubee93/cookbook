@@ -1,0 +1,35 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div><%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %></div>
+
+    <div><%= f.label :username %><br />
+      <%= f.text_field :username %></div>
+
+    <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Jelenleg visszaigazolásra várakozik: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div><%= f.label :password %> <i>(hagyd üresen ha nem akarod megváltoztatni)</i><br />
+      <%= f.password_field :password, autocomplete: "off" %></div>
+
+    <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+    <div><%= f.label :current_password %> <i>(szükségünk van a jelenlegi jelszavadra, hogy megerősítsd a változtatásokat)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %></div><br />
+
+    <div><%= f.submit "Módosítás" %></div>
+<% end %>
+
+<h3>Felhasználói fiók törlése</h3>
+
+<p>Boldogtalan vagy? <%= button_to "Fiók törlése", registration_path(resource_name), data: { confirm: "Biztos vagy benne?" }, method: :delete %></p>
+
+<%= link_to "Vissza", :back %>

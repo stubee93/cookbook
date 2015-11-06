@@ -1,0 +1,9 @@
+<br />
+<% if user_signed_in? %>
+<h2>Mondd el véleményed erről a receptről:</h2>
+<%= form_for(:comment) do |f| %>
+    <%= f.text_area :content, :id => 'comment', cols:"50", rows: "5" %>
+    <%= f.hidden_field :recipe_id, :value => @recipe.id %><br />
+    <%= f.submit 'Belemondom' %>
+    <% end %>
+<% end %>

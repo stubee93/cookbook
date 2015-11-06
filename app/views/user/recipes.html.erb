@@ -1,0 +1,20 @@
+<h3><%= User.find(params[:id]).name %> által beküldött receptek</h3>
+
+<div class="receptjei">
+  <table class="table table-condensed table-responsive">
+    <thead>
+    <tr>
+      <td>Név</td>
+      <td>Értékelés</td>
+      <td>Hozzászólások száma</td>
+    </tr>
+    </thead>
+    <% @recipes.each do |recipe| %>
+        <tr>
+          <td><%= link_to recipe.name, recipe %></td>
+          <td><%= rating_for recipe, "instructions", :star => 5 %></td>
+          <td><%= recipe.comments.count %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

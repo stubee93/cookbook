@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookbook</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="jumbotron">
+    <div class="container">
+        <h1>CookBook</h1>
+
+            <p class="transbox">Készítsd el és értékeld mások receptjeit, vagy küldd be a sajátod.</p>
+
+    </div>
+  </div>
+<%= render '/layouts/menu' %>
+
+<div class="container">
+  <div class="row">
+    <div class="container">
+        <%= yield %>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

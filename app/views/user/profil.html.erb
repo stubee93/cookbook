@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @user.name %></h2>
+<div class = "adatok">
+    <p><span class="fa fa-at"></span> E-mail: <%= @user.email %></p>
+    <p><span class="glyphicon glyphicon-list-alt"></span> Beküldött receptek száma: <%= @user.recipes.count %> <%= link_to 'Listázd', user_recipes_path %></p>
+    <p><span class="fa fa-comment"></span> Hozzászólások száma: <%= @user.comments.count %></p>
+    <p><span class="glyphicon glyphicon-calendar"></span> Regisztrált: <%= @user.created_at %></p>
+    <p><span class="glyphicon glyphicon-calendar"></span> Utoljára itt járt: <%= @user.last_sign_in_at %></p>
+</div>
+<br />
+<div class="kedvencek">
+  <h3> <span class="fa fa-heart"> Kedvencnek jelölt receptjei:</span></h3>
+    <table class="table table-hover">
+      <% @favorites.each do |favorite| %>
+          <tr>
+              <td><%= link_to favorite.name, favorite %></td>
+              <td><%= link_to User.find(favorite.user_id).name, user_path(favorite.user_id)  %></td>
+              <td><%= rating_for favorite, "instructions", :star => 5 %> </td>
+              <td><%= link_to raw('<span class="fa-stack fa-2x"><i class="fa fa-heart fa-stack-1x"></i><i class="fa fa-bolt fa-stack-1x fa-inverse"></i></span>'), favorite_recipe_path(favorite, type: "unfavorite"), method: :put %></td>
+          </tr>
+      <% end %>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Kezdőlap', root_path %></li>
+        <li><%= link_to 'Receptek', category_path %></li>
+        <% if user_signed_in? %>
+            <li><%= link_to 'Receptjeim', recipes_path %></li>
+            <li><%= link_to 'Recept küldés', new_recipe_path %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+            <li><p>Bejelentkezve, mint: <%= link_to current_user.name, user_path(current_user.id) %></p></li>
+            <li><%= link_to 'Fiók módosítása',edit_user_registration_path %></li>
+            <li><%= link_to 'Kijelentkezés', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to raw("<span class='glyphicon glyphicon-user'> Regisztráció</span>"), '/users/sign_up' %></li>
+
+            <li><%= link_to  raw("<span class='glyphicon glyphicon-log-in'> Bejelentkezés</span>"), new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

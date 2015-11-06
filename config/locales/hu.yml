@@ -1,0 +1,26 @@
+hu:
+  hello: "Helló világ"
+  register: "Regisztráció"
+  login: "Bejelentkezés"
+
+  activerecord:
+    models:
+      user:
+        one: "Felhasználó"
+        other: "Felhasználók"
+    attributes:
+      user:
+        email: "Email cím"
+        username: "Felhasználónév"
+        name: "Név"
+        password: "Jelszó"
+        password_confirmation: "Jelszó megerősítése"
+        remember_me: "Emlékezz rám"
+        current_password: "Jelenlegi jelszó"
+      recipe:
+        recipe_name: "Étel neve"
+        ingredients: "Hozzávalók"
+        instructions: "Elkészítés menete"
+        time: "Elkészítés becsült ideje percben"
+        difficulty: "Nehézségi szint"
+        image: "Csatolt kép"

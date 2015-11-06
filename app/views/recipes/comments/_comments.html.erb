@@ -1,0 +1,15 @@
+<h2>Hozzászólások:</h2>
+<div class="row">
+  <div class="content">
+    <% if @recipe.comments.count > 0 %>
+  <% @recipe.comments.each do |comment| %>
+    <div class="well well-lg">
+      <strong><p><%= User.find(comment.user_id).name%> írta:</p></strong>
+      <p class="szoveg"><%= comment.content %></p>
+    </div>
+  <% end %>
+        <% else %>
+    <p> Nincsenek kommentek.</p>
+    <% end %>
+</div>
+</div>

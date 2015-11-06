@@ -1,0 +1,35 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.adatok{
+  padding-top: 35px;
+  padding-left:35px;
+}
+
+.receptjei{
+  padding-top: 35px;
+  padding-left:35px;
+}
+body{
+  a{
+    &:hover{
+      background: none;
+      color: #0782C1;
+    }
+  }
+  .cella{
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .kedvencek{
+    table{
+      tr{
+        td{
+          padding-left: 20px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

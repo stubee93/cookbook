@@ -1,0 +1,32 @@
+<h1>Receptjeim</h1>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, recipe %></td>
+        <% if can? :update, recipe %>
+            <td><%= link_to 'Módosítás', edit_recipe_path(recipe) %></td>
+        <% else %>
+            <th colspan="1"></th>
+        <% end %>
+        <% if can? :destroy, recipe %>
+            <td><%= link_to 'Törlés', recipe, method: :delete, data: { confirm: 'Biztos vagy benne??' } %></td>
+        <% else %>
+            <th colspan="1"></th>
+        <% end %>
+        <td><%= rating_for recipe, "instructions", :star => 5 %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

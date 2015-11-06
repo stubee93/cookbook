@@ -1,0 +1,7 @@
+<p>Hello <%= @resource.email %>!</p>
+
+<p>A felhasználói fiókod zárolva lett túl sok sikertelen bejelntkezési kísérlet miatt.</p>
+
+<p>Klikkelj az alábbi linkre a feloldásához:</p>
+
+<p><%= link_to 'Felhasználói fiók feloldása', unlock_url(@resource, unlock_token: @token) %></p>
