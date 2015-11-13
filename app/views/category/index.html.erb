@@ -1,0 +1,8 @@
+<% @categories.each do |category| %>
+  <div class = "col-md-4">
+    <div class="category">
+      <%= image_tag(category.id.to_s+'.jpg', height: "200px") %><br/>
+      <%= category.name %>
+      </div>
+  </div>
+<% end %>

@@ -11,16 +11,20 @@
     </div>
   <% end %>
 <div>
+    <%= f.label :category %><br />
+    <%= f.collection_select :subcategory_id, @subcategories, :id, :name %><br /><br />
     <%= f.label :recipe_name %><br />
     <%= f.text_field :name, size: "51" %><br /><br />
     <%= f.label :image %><br />
-    <%= f.file_field :image %><br /><br />
+    <%= f.file_field :image %><br />
     <%= f.label :time %><br />
     <%= f.text_field :time, size: "51" %><br /><br />
     <%= f.label :difficulty %><br />
     <%= f.collection_select(:level_id, Level.all,:id,:name) %>
     <br/><br/>
-    <%= f.label :ingredients %><br /><i>Kérjük tüntesd fel azt is, hogy hány személyre elegendő ez a mennyiség.</i><br />
+    <%= f.label :quantity %><br/>
+    <%= f.text_field :quantity %><br /><br />
+    <%= f.label :ingredients %><br />
     <%= f.text_area :ingredients, cols: "50", rows: "10"  %><br /><br />
     <%= f.label :instructions %><br />
     <%= f.cktext_area :instructions %><br /><br />

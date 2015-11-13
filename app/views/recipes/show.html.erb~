@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<h1><%= @recipe.name %></h1>
+
+<% if current_user %>
+    <% if @recipe.favorited_by.exists?(current_user.id) %>
+        <%= link_to raw('<span class="fa-stack fa-2x"><i class="fa fa-heart fa-stack-1x"></i><i class="fa fa-bolt fa-stack-1x fa-inverse"></i></span>'), favorite_recipe_path(type: "unfavorite"), method: :put, alt: "Eltávolítás a kedvencek közül." %>
+    <% else %>
+        <%= link_to raw('<span class="fa-stack fa-2x"><i class="fa fa-heart fa-stack-1x"></i></span>'),   favorite_recipe_path(type: "favorite"), method: :put, alt: "Hozzáadás a kedvencekhez." %>
+    <% end %>
+<% end %>
+<br />
+<%= rating_for @recipe, "instructions", :star => 5 %>
+<div class="recipe-image img-responsive">
+  <%= image_tag (@recipe.image.url, height: "200px") %>
+</div>
+<% if can? :update, @recipe %>
+    <%= link_to 'Módosítás', edit_recipe_path(@recipe) %> |
+<% end %>
+<%= link_to 'Vissza', _back_url %>
+<div>
+  <p>Elkészítési idő: <%= @recipe.time %> perc   |   Nehézségi szint: <%= Level.find(@recipe.level).name %></p>
+</div>
+
+<div>
+  <h3>Hozzávalók:</h3>
+  <%= raw nl2br(h(@recipe.ingredients)) %>
+</div>
+<br />
+<div class="leiras">
+  <%= raw @recipe.instructions %>
+</div>
+<%= render :partial => 'recipes/comments/form' %>
+<%= render :partial => 'recipes/comments/comments' %>

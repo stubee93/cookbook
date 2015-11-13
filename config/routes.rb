@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'home#home'
-  get 'categories' => 'home#category', :as => 'category'
+  get 'categories' => 'category#index', :as => 'category'
   get '/user/:id' => 'user#profil', as: 'user'
   post '/recipes/:id' => 'comment#create'
   get '/user/:id/recipes' => 'user#recipes', :as => 'user_recipes'
+  get 'category/:id' =>  'category#subcategories', :as => 'subcategories'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

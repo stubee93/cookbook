@@ -14,6 +14,14 @@ class RecipesController < ApplicationController
 
   def new
     if user_signed_in?
+      @subcategories ||= []
+      @categories = Category.all
+      @categories.each do |category|
+       sub = category.subcategories
+       sub.each do |subcat|
+          @subcategories << Category.new(name: category.name + '/' +subcat.name, id: subcat.id)
+       end
+      end
       @recipe = Recipe.new
       respond_with(@recipe)
     else
@@ -23,15 +31,25 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @subcategories ||= []
+    @categories = Category.all
+    @categories.each do |category|
+      sub = category.subcategories
+      sub.each do |subcat|
+        @subcategories << Category.new(name: category.name + '/' +subcat.name, id: subcat.id)
+      end
+    end
   end
 
   def create
+    Cloudinary::Uploader.upload(recipe_params[:image])
     @recipe = Recipe.new(recipe_params)
     @recipe.save
     respond_with(@recipe)
   end
 
   def update
+
     @recipe.update(recipe_params)
     respond_with(@recipe)
   end
@@ -67,6 +85,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :time, :level_id, :ingredients, :instructions, :image).merge(user_id: current_user.id)
+      params.require(:recipe).permit(:name, :time, :level_id, :subcategory_id, :quantity, :ingredients, :instructions, :image).merge(user_id: current_user.id)
     end
 end

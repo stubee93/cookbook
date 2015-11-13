@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024123007) do
+ActiveRecord::Schema.define(version: 20151114094450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20151024123007) do
     t.integer  "rateable_id"
     t.string   "rateable_type"
     t.float    "avg",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,14 +90,20 @@ ActiveRecord::Schema.define(version: 20151024123007) do
     t.text     "ingredients"
     t.text     "instructions"
     t.integer  "time"
+    t.integer  "quantity"
     t.integer  "level_id"
+    t.integer  "subcategory_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "image"
+  end
+
+  create_table "subcategories", force: true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

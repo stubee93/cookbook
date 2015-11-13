@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: rorproject
+  api_key: '952583589231542'
+  api_secret: tbfP2iqhWNTYol2H7dBMnCFbBh8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: rorproject
+  api_key: '952583589231542'
+  api_secret: tbfP2iqhWNTYol2H7dBMnCFbBh8
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: rorproject
+  api_key: '952583589231542'
+  api_secret: tbfP2iqhWNTYol2H7dBMnCFbBh8
+  enhance_image_tag: true
+  static_image_support: false
