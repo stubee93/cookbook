@@ -1,0 +1,7 @@
+<% @categories.each do |category| %>
+    <div class = "row">
+      <div class="alert alert-info">
+        <%= link_to category.name, recipes_of_category_path(category.id) %><span class="badge" style="float: right"><%= category.recipes.count %></span>
+      </div>
+    </div>
+<% end %>

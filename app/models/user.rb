@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :username, presence: true
+  validates :name, presence: true
   has_many :recipes
   has_many :comments
   has_many :favorite_recipes

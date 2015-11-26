@@ -8,6 +8,10 @@
     <% end %>
 <% end %>
 <br />
+<% if !user_signed_in? %>
+    <h1><%= @recipe.name %></h1>
+<% end %>
+
 <%= rating_for @recipe, "instructions", :star => 5 %>
 <div class="recipe-image img-responsive">
   <%= image_tag(@recipe.image.url, height: "200px") %>
@@ -22,7 +26,7 @@
 
 <div>
   <h3>Hozzávalók:</h3>
-  <h5><i class="fa fa-users"> </i> <%= @recipe.quantity %> személyre.</h5>
+  <h5><i class="fa fa-users"> </i> <%= @recipe.quantity %> személyre</h5>
   <%= raw nl2br(h(@recipe.ingredients)) %>
 </div>
 <br/>

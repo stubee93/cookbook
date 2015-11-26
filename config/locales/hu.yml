@@ -2,12 +2,56 @@ hu:
   hello: "Helló világ"
   register: "Regisztráció"
   login: "Bejelentkezés"
-
+  time:
+   formats:
+     long: "%Y.%m.%d %H:%M:%S"
+  errors:
+    messages:
+        not_saved: "Sikertelen mentés"
   activerecord:
+    errors:
+       models:
+        recipe:
+          attributes:
+            name:
+              blank: "nem lehet üres."
+            time:
+              blank: "nem lehet üres."
+              not_a_number: "egész számnak kell lennie."
+            quantity:
+              blank: "nem lehet üres."
+              not_a_number: "egész számnak kell lennie."
+            ingredients:
+              blank: "listája nem lehet üres."
+            image:
+              blank: "kötelező!"
+            instructions:
+              blank: "mező nem lehet üres!"
+        user:
+          attributes:
+            email:
+              blank: "nem lehet üres."
+            password:
+              blank: "nem lehet üres."
+            username:
+              blank: "nem lehet üres."
+            name:
+              blank: "nem lehet üres."
+
     models:
       user:
         one: "Felhasználó"
         other: "Felhasználók"
+      recipe:
+        one: "Recept"
+        other: "Receptek"
+      comment:
+        one: "Komment"
+        other: "Kommentek"
+      admin_user:
+        one: "Admin felhasználó"
+        other: "Admin felhasználók"
+
     attributes:
       user:
         email: "Email cím"
@@ -17,11 +61,36 @@ hu:
         password_confirmation: "Jelszó megerősítése"
         remember_me: "Emlékezz rám"
         current_password: "Jelenlegi jelszó"
+        encrypted_password: "Titkosított jelszó"
+        role: "Szerepkör"
+        reset_password_token: "Jelszó visszaállító kód"
+        reset_password_sent_at: "Jelszó visszaállítás ideje"
+        remember_created_at: "Jelszó emlékeztető létrehozva"
+        current_sign_in_at: "Jelenlegi bejelentkezés ekkor"
+        last_sign_in_at: "Utolsó bejelentkezés ideje"
+        current_sign_in_ip: "Jelenlegi bejelentkezési IP"
+        last_sign_in_ip: "Utoljára bejelentkezett erről az IP-ről"
+        created_at: "Létrehozva"
+        updated_at: "Módosítva"
+
       recipe:
+        user: "Felhasználó"
+        level: "Nehézségi szint"
+        subcategory: "Alategória"
+        comments: "Kommentek"
+        favorite_recipes: "Kedvenc receptek"
+        favorited_by: "Kedvencnek adta"
+        instructions_rates: "Recept értékelések"
+        instructions_raters: "Recept értékelők"
+        instructions_average: "Értékelés átlaga"
         recipe_name: "Étel neve"
+        name: "Az étel neve"
         ingredients: "Hozzávalók"
         instructions: "Elkészítés menete"
         time: "Elkészítés becsült ideje percben"
         difficulty: "Nehézségi szint"
         image: "Csatolt kép"
-        quantity: "Hány főre elegnedő?"
+        quantity: "Adag"
+        category: "Kategória"
+        created_at: "Létrehozva"
+        updated_at: "Módosítva"

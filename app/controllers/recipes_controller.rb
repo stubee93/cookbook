@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+
   respond_to :html
 
 
@@ -42,15 +43,34 @@ class RecipesController < ApplicationController
   end
 
   def create
-    Cloudinary::Uploader.upload(recipe_params[:image])
     @recipe = Recipe.new(recipe_params)
+    if @recipe.valid?
+      Cloudinary::Uploader.upload(recipe_params[:image])
+    else
+      @subcategories ||= []
+      @categories = Category.all
+      @categories.each do |category|
+        sub = category.subcategories
+        sub.each do |subcat|
+          @subcategories << Category.new(name: category.name + '/' +subcat.name, id: subcat.id)
+        end
+      end
+    end
     @recipe.save
     respond_with(@recipe)
   end
 
   def update
 
-    @recipe.update(recipe_params)
+      @recipe.update(recipe_params)
+      @subcategories ||= []
+      @categories = Category.all
+      @categories.each do |category|
+        sub = category.subcategories
+        sub.each do |subcat|
+          @subcategories << Category.new(name: category.name + '/' +subcat.name, id: subcat.id)
+        end
+      end
     respond_with(@recipe)
   end
 

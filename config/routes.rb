@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   post '/rate' => 'rater#create', :as => 'rate'
   #resources :recipes
   resources :recipes do
@@ -8,10 +10,11 @@ Rails.application.routes.draw do
 
   root 'home#home'
   get 'categories' => 'category#index', :as => 'category'
+  get 'category/:id' => 'category#subcategories', :as =>'subcategories'
+  get 'category/:id/list' => 'category#list', :as => 'recipes_of_category'
   get '/user/:id' => 'user#profil', as: 'user'
   post '/recipes/:id' => 'comment#create'
   get '/user/:id/recipes' => 'user#recipes', :as => 'user_recipes'
-  get 'category/:id' =>  'category#subcategories', :as => 'subcategories'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

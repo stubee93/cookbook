@@ -4,7 +4,8 @@
     <% if @recipe.comments.count > 0 %>
   <% @recipe.comments.each do |comment| %>
     <div class="well well-lg">
-      <strong><p><%= User.find(comment.user_id).name%> írta:</p></strong>
+      <p style ="float: right;"><%= comment.created_at %> </p>
+      <strong><p><%= User.find(comment.user_id).name %> írta:</p></strong>
       <p class="szoveg"><%= comment.content %></p>
     </div>
   <% end %>

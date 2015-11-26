@@ -13,3 +13,4 @@ subcategories = Subcategory.create([{name:'Húsos előételek', category_id: '1'
                                     {name:'Bárányhúsos ételek', category_id: '2'}, {name:'Vadételek', category_id: '2'},{name:'Tésztaételek', category_id: '2'},
                                     {name:'Köret', category_id: '2'},{name:'Egyéb', category_id: '2'}, {name:'Hússal készült', category_id: '3'},{name:'Zöldséglevesek', category_id: '3'},
                                     {name:'Gyümölcslevesek', category_id: '3'},{name:'Krémlevesek', category_id: '3'},{name:'Egyéb', category_id: '3'},])
+AdminUser.create!(email: 'rafai@example.com', password: 'asdqweasd', password_confirmation: 'asdqweasd')

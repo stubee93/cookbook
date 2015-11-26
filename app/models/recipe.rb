@@ -1,4 +1,12 @@
 class Recipe < ActiveRecord::Base
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :time, numericality: {only_integer: true}, presence: true
+  validates :quantity, numericality: {only_integer: true}, presence: true
+  validates :ingredients, presence: true
+  validates :instructions, presence: true
+
+
   #attr_accessible :image
   belongs_to :user
   belongs_to :level

@@ -1,7 +1,7 @@
 <%= form_for @recipe, html: { multipart: true } do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <h2><%= @recipe.errors.count %> hiba miatt nem sikerült a recept mentése:</h2>
 
       <ul>
       <% @recipe.errors.full_messages.each do |message| %>

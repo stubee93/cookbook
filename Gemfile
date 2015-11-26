@@ -38,14 +38,15 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activesupport'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'ckeditor'
 gem 'ratyrate'
 gem 'cancan'
-gem 'will_paginate', '~> 3.0.6'
+#gem 'will_paginate', '~> 3.0.6'
 #gem "paperclip", "~> 4.3"
 gem 'carrierwave'
 gem 'cloudinary'

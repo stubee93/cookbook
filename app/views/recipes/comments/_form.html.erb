@@ -6,4 +6,6 @@
     <%= f.hidden_field :recipe_id, :value => @recipe.id %><br />
     <%= f.submit 'Belemondom' %>
     <% end %>
+<% else %>
+<div class = "alert alert-warning"><strong>A hozzászóláshoz be kell jelentkezned. Ha még nincs fiókot akkor <%= link_to "ide", new_user_registration_path %> kattintva létrehozhatsz egyet.</strong></div>
 <% end %>
