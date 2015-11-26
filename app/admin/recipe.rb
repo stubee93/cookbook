@@ -12,6 +12,6 @@ ActiveAdmin.register Recipe do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-
+permit_params :name, :image, :time, :quantity, :ingredients, :instructions
 
 end
