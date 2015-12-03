@@ -13,4 +13,3 @@ class HomeControllerTest < ActionController::TestCase
     assert_select "h1", "Legújabb receptek"
   end
 end
-jah,
